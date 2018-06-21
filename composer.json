@@ -10,10 +10,15 @@
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
         "symfony/lts": "^4@dev",
+        "symfony/monolog-bundle": "^3.3",
+        "symfony/orm-pack": "^1.0",
+        "symfony/serializer-pack": "^1.0",
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1"
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "symfony/dotenv": "^4.1",
+        "symfony/maker-bundle": "^1.5"
     },
     "config": {
         "preferred-install": {
