@@ -1,4 +1,7 @@
 {
+    "php-amqplib/php-amqplib": {
+        "version": "v2.7.2"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
