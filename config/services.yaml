@@ -1,6 +1,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    env(APP_IDENT): 'worker_a'
+    env(APP_ROLES): 'role_a,role_b'
+    env(MQ_URL): 'user:password@127.0.0.1:5672'
 
 services:
     # default configuration for services in *this* file
@@ -23,5 +26,18 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # Interface (Contract) to Implementation Mapping
+    App\Contract\Module\Service\MessageBroker: '@App\Module\Service\RabbitMQ'
+
+    # Services
+    App\Module\Service\RabbitMQ:
+        arguments:
+            $appIdent: '%env(APP_IDENT)%'
+            $appRoles: '%env(APP_ROLES)%'
+            $mqURL: '%env(MQ_URL)%'
+            $logger: '@monolog.logger.request'
+
+    # Controllers
+    App\Controller\API\V1\HealthController:
+        arguments:
+            $logger: '@monolog.logger.request'
