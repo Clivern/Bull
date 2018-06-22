@@ -1,15 +1,29 @@
 # Bull
 📦 Microservices Playground with Symfony 4.
 
+*Current version: coming soon*
 
-Production Ideas
+[![Build Status](https://travis-ci.org/Clivern/Bull.svg?branch=master)](https://travis-ci.org/Clivern/Bull)
+
+
+Production Strategy
 ----------------
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Clivern/Bull/master/public/assets/images/infra_1.png">
+    <br/><br/>
+    <img src="https://raw.githubusercontent.com/Clivern/Bull/master/graphs/strategy_1.png">
+    <br/><br/>
 </p>
+
 
 Misc
 ----
+
+### Changelog
+
+Version 1.0.0:
+```
+Coming Soon.
+```
 
 ### Acknowledgements
 
