@@ -6,15 +6,6 @@
 [![Build Status](https://travis-ci.org/Clivern/Bull.svg?branch=master)](https://travis-ci.org/Clivern/Bull)
 
 
-Production Strategy
-----------------
-<p align="center">
-    <br/><br/>
-    <img src="https://raw.githubusercontent.com/Clivern/Bull/master/graphs/strategy_1.png">
-    <br/><br/>
-</p>
-
-
 Misc
 ----
 
