@@ -1,42 +1,4 @@
 language: php
-dist: precise
-
-php:
-    - 5.6
-    - 7.0
-    - 7.1
-
-services:
-    - mysql
-
-## Cache composer
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-before_script:
-  - mysql -e 'CREATE DATABASE homestead;'
-  - mysql -e 'CREATE DATABASE bull;'
-  - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
-  - rm app/config/parameters.yml
-  - cp app/config/parameters.yml.travis app/config/parameters.yml
-  - php bin/console doctrine:schema:update --force
-  - php bin/console doctrine:fixtures:load -n
-
-script:
-  - ./vendor/bin/simple-phpunit --coverage-text --coverage-clover=coverage.clover
-  # this checks that the YAML config files contain no syntax errors
-  - ./bin/console lint:yaml config
-  # this checks that the Twig template files contain no syntax errors
-  - ./bin/console lint:twig resources/themes/default
-  # this checks that the XLIFF translations contain no syntax errors
-  - ./bin/console lint:xliff resources/translations
-  # this checks that the application doesn't use dependencies with known security vulnerabilities
-  - ./bin/console security:check --end-point=http://security.sensiolabs.org/check_lock
-
-
-language: php
 sudo: false
 
 cache:
