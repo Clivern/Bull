@@ -14,6 +14,7 @@
         "symfony/lts": "^4@dev",
         "symfony/monolog-bundle": "^3.3",
         "symfony/orm-pack": "^1.0",
+        "symfony/requirements-checker": "^1.1",
         "symfony/serializer-pack": "^1.0",
         "symfony/yaml": "^4.1"
     },
@@ -51,7 +52,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "requirements-checker": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"

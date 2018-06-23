@@ -1,20 +1,13 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- * (c) Fabien Potencier <fabien@symfony.com>
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OptionRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ConfigRepository")
  */
-class Option
+class Config
 {
     /**
      * @ORM\Id()
@@ -26,12 +19,12 @@ class Option
     /**
      * @ORM\Column(type="string", length=60)
      */
-    private $option_key;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $option_value;
+    private $value;
 
     /**
      * @ORM\Column(type="boolean")
@@ -53,26 +46,26 @@ class Option
         return $this->id;
     }
 
-    public function getOptionKey(): ?string
+    public function getName(): ?string
     {
-        return $this->option_key;
+        return $this->name;
     }
 
-    public function setOptionKey(string $option_key): self
+    public function setName(string $name): self
     {
-        $this->option_key = $option_key;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getOptionValue(): ?string
+    public function getValue(): ?string
     {
-        return $this->option_value;
+        return $this->value;
     }
 
-    public function setOptionValue(string $option_value): self
+    public function setValue(string $value): self
     {
-        $this->option_value = $option_value;
+        $this->value = $value;
 
         return $this;
     }
