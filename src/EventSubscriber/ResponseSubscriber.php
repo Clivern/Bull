@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ * (c) Fabien Potencier <fabien@symfony.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\EventSubscriber;
 
 use Psr\Log\LoggerInterface;
@@ -17,7 +24,7 @@ class ResponseSubscriber implements EventSubscriberInterface
 
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        $this->logger->info(sprintf("App Response: %s", $event->getResponse()));
+        $this->logger->info(sprintf('App Response: %s', $event->getResponse()));
     }
 
     public static function getSubscribedEvents()

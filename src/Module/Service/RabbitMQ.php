@@ -1,13 +1,19 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ * (c) Fabien Potencier <fabien@symfony.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Module\Service;
 
-use InvalidArgumentException;
-use Psr\Log\LoggerInterface;
 use App\Contract\Module\Service\MessageBroker;
+use Psr\Log\LoggerInterface;
 
 /**
- * RabbitMQ Service
+ * RabbitMQ Service.
  */
 class RabbitMQ implements MessageBroker
 {
@@ -18,7 +24,7 @@ class RabbitMQ implements MessageBroker
     private $logger;
 
     /**
-     * Class Constructor
+     * Class Constructor.
      *
      * @param string          $appIdent
      * @param string          $appRoles
@@ -34,7 +40,7 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Get App ident
+     * Get App ident.
      *
      * @return string
      */
@@ -44,7 +50,7 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Get App Roles
+     * Get App Roles.
      *
      * @return string
      */
@@ -54,24 +60,24 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Get Message Broker Server Info
+     * Get Message Broker Server Info.
      *
      * @return array
      */
     public function getMqUrl(): array
     {
-        $mqURL = explode("@", $this->mqURL);
-        $mqURL[0] = explode(":", $mqURL[0]);
+        $mqURL = explode('@', $this->mqURL);
+        $mqURL[0] = explode(':', $mqURL[0]);
 
         return [
-            "url" => $mqURL[1],
-            "username" => $mqURL[0][0],
-            "password" => $mqURL[0][1],
+            'url' => $mqURL[1],
+            'username' => $mqURL[0][0],
+            'password' => $mqURL[0][1],
         ];
     }
 
     /**
-     * Configure Client
+     * Configure Client.
      *
      * @return RabbitMQ
      */

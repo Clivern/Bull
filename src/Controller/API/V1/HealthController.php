@@ -1,20 +1,27 @@
 <?php
 
+/*
+ * This file is part of the Symfony package.
+ * (c) Fabien Potencier <fabien@symfony.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Controller\API\V1;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Health Controller
+ * Health Controller.
  */
 class HealthController extends Controller
 {
     private $logger;
 
     /**
-     * Class Constructor
+     * Class Constructor.
      *
      * @param LoggerInterface $logger
      */
@@ -29,7 +36,7 @@ class HealthController extends Controller
     public function index()
     {
         return $this->json([
-            'status' => "Ok"
+            'status' => 'Ok',
         ]);
     }
 }
