@@ -39,7 +39,7 @@ services:
             $logger: '@App\Utils\Logger'
 
     # Controllers
-    App\Controller\API\V1\HealthController:
+    App\Controller\Web\HomeController:
         arguments:
             $logger: '@App\Utils\Logger'
 

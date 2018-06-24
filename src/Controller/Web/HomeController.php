@@ -7,18 +7,18 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Controller\API\V1;
+namespace App\Controller\Web;
 
 use App\Utils\Logger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Health Controller.
+ * Home Controller.
  *
  * @since 1.0.0
  */
-class HealthController extends Controller
+class HomeController extends Controller
 {
     private $logger;
 
@@ -33,7 +33,7 @@ class HealthController extends Controller
     }
 
     /**
-     * @Route("/api/v1/health", name="api.v1.health")
+     * @Route("/", name="web.home")
      */
     public function index()
     {
