@@ -11,6 +11,8 @@ namespace App\Contract\Module\Service;
 
 /**
  * Message Broker Interface.
+ *
+ * @since 1.0.0
  */
 interface MessageBroker
 {

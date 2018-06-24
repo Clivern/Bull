@@ -29,6 +29,7 @@ services:
 
     # Interface (Contract) to Implementation Mapping
     App\Contract\Module\Service\MessageBroker: '@App\Module\Service\RabbitMQ'
+    App\Contract\Module\Service\Response: '@App\Module\Service\Response'
 
     # Services
     App\Module\Service\RabbitMQ:
@@ -38,11 +39,20 @@ services:
             $mqURL: '%env(MQ_URL)%'
             $logger: '@App\Utils\Logger'
 
-    # Controllers
-    App\Controller\Web\HomeController:
+    App\Module\Core\Health:
         arguments:
             $logger: '@App\Utils\Logger'
 
+
+    # Web Controllers
+    App\Controller\Web\HomeController:
+        arguments:
+            $logger: '@App\Utils\Logger'
+            $response: '@App\Contract\Module\Service\Response'
+
+    # API Controllers
+
+    # Utils
     App\Utils\Logger:
         arguments:
             $logger: "@logger"

@@ -40,9 +40,7 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Get App ident.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getAppIdent(): string
     {
@@ -50,9 +48,7 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Get App Roles.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getAppRoles(): array
     {
@@ -60,9 +56,7 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Get Message Broker Server Info.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function getMqUrl(): array
     {
@@ -77,9 +71,7 @@ class RabbitMQ implements MessageBroker
     }
 
     /**
-     * Configure Client.
-     *
-     * @return RabbitMQ
+     * {@inheritdoc}
      */
     private function configClient(): self
     {

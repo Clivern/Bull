@@ -9,6 +9,7 @@
 
 namespace App\Controller\Web;
 
+use App\Contract\Module\Service\Response;
 use App\Utils\Logger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,15 +22,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends Controller
 {
     private $logger;
+    private $response;
 
     /**
      * Class Constructor.
      *
      * @param Logger $logger
      */
-    public function __construct(Logger $logger)
+    public function __construct(Logger $logger, Response $response)
     {
         $this->logger = $logger;
+        $this->response = $response;
     }
 
     /**
@@ -37,8 +40,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return $this->json([
-            'status' => 'Ok',
-        ]);
+        return $this->json(
+            $this->response->setResponse(['status' => 'Ok'])->getResponse(),
+            Response::HTTP_OK
+        );
     }
 }
