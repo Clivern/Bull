@@ -21,7 +21,7 @@ matrix:
     - php: nightly
 
 before_install:
-  - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || phpenv config-rm xdebug.ini'
+  # - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || phpenv config-rm xdebug.ini'
   - composer self-update
   - mysql -e 'CREATE DATABASE bull;'
 
