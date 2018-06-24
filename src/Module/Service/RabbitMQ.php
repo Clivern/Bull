@@ -2,7 +2,7 @@
 
 namespace App\Module\Service;
 
-use Psr\Log\LoggerInterface;
+use App\Utils\Logger;
 use App\Contract\Module\Service\MessageBroker;
 
 /**
@@ -22,9 +22,9 @@ class RabbitMQ implements MessageBroker
      * @param string          $appIdent
      * @param string          $appRoles
      * @param string          $mqURL
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
-    public function __construct(string $appIdent, string $appRoles, string $mqURL, LoggerInterface $logger)
+    public function __construct(string $appIdent, string $appRoles, string $mqURL, Logger $logger)
     {
         $this->appIdent = $appIdent;
         $this->appRoles = $appRoles;

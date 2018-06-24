@@ -2,10 +2,13 @@
 
 namespace App\Signal;
 
-use Psr\Log\LoggerInterface;
+use App\Utils\Logger;
 
 /**
  * Signal Client.
+ *
+ * @since  1.0.0
+ * @package App\Signal
  */
 class Client
 {
@@ -14,9 +17,9 @@ class Client
     /**
      * Class Constructor.
      *
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(Logger $logger)
     {
         $this->logger = $logger;
     }

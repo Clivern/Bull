@@ -1,20 +1,16 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- * (c) Fabien Potencier <fabien@symfony.com>
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace App\Controller\API\V1;
 
-use Psr\Log\LoggerInterface;
+use App\Utils\Logger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Health Controller.
+ *
+ * @since 1.0.0
+ * @package App\Controller\API\V1
  */
 class HealthController extends Controller
 {
@@ -23,9 +19,9 @@ class HealthController extends Controller
     /**
      * Class Constructor.
      *
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(Logger $logger)
     {
         $this->logger = $logger;
     }

@@ -2,10 +2,13 @@
 
 namespace App\Signal\Sender;
 
-use Psr\Log\LoggerInterface;
+use App\Utils\Logger;
 
 /**
  * Health Signal Sender.
+ *
+ * @since  1.0.0
+ * @package App\Signal\Sender
  */
 class Health
 {
@@ -14,9 +17,9 @@ class Health
     /**
      * Class Constructor.
      *
-     * @param LoggerInterface $logger
+     * @param Logger $logger
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(Logger $logger)
     {
         $this->logger = $logger;
     }

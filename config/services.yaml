@@ -4,6 +4,7 @@ parameters:
     env(APP_IDENT): 'worker_a'
     env(APP_ROLES): 'role_a,role_b'
     env(MQ_URL): 'user:password@127.0.0.1:5672'
+    env(DEBUG_LEVEL): 'error'
 
 services:
     # default configuration for services in *this* file
@@ -35,9 +36,15 @@ services:
             $appIdent: '%env(APP_IDENT)%'
             $appRoles: '%env(APP_ROLES)%'
             $mqURL: '%env(MQ_URL)%'
-            $logger: '@monolog.logger.request'
+            $logger: '@App\Utils\Logger'
 
     # Controllers
     App\Controller\API\V1\HealthController:
         arguments:
-            $logger: '@monolog.logger.request'
+            $logger: '@App\Utils\Logger'
+
+    App\Utils\Logger:
+        arguments:
+            $logger: "@logger"
+            $path: "%kernel.logs_dir%/%%name%%.log"
+            $level: '%env(DEBUG_LEVEL)%'
