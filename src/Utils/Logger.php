@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the Bull project.
+ * (c) Clivern <hello@clivern.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Utils;
 
 use Monolog\Handler\StreamHandler;
@@ -7,10 +14,9 @@ use Monolog\Logger as BaseLogger;
 use Psr\Log\LoggerInterface;
 
 /**
- * Logger Class
+ * Logger Class.
  *
  * @since 1.0.0
- * @package App\Utils
  */
 class Logger implements LoggerInterface
 {
@@ -18,37 +24,38 @@ class Logger implements LoggerInterface
     private $path;
     private $level;
     private $levels = [
-        "DEBUG" => BaseLogger::DEBUG,
-        "INFO" => BaseLogger::INFO,
-        "NOTICE" => BaseLogger::NOTICE,
-        "WARNING" => BaseLogger::WARNING,
-        "ERROR" => BaseLogger::ERROR,
-        "CRITICAL" => BaseLogger::CRITICAL,
-        "ALERT" => BaseLogger::ALERT,
-        "EMERGENCY" => BaseLogger::EMERGENCY
+        'DEBUG' => BaseLogger::DEBUG,
+        'INFO' => BaseLogger::INFO,
+        'NOTICE' => BaseLogger::NOTICE,
+        'WARNING' => BaseLogger::WARNING,
+        'ERROR' => BaseLogger::ERROR,
+        'CRITICAL' => BaseLogger::CRITICAL,
+        'ALERT' => BaseLogger::ALERT,
+        'EMERGENCY' => BaseLogger::EMERGENCY,
     ];
 
     /**
      * Class Constructor.
      *
      * @param BaseLogger $logger
-     * @param string $path
-     * @param string $level
+     * @param string     $path
+     * @param string     $level
      */
     public function __construct(BaseLogger $logger, $path, $level)
     {
         $this->logger = $logger;
         $this->path = $path;
-        $this->level = strtoupper($level);
+        $this->level = mb_strtoupper($level);
     }
 
     /**
      * @param string $name
+     *
      * @return LoggerInterface
      */
     public function openLog($name)
     {
-        if (!empty($name) && $this->logger->getName() != $name) {
+        if (!empty($name) && $this->logger->getName() !== $name) {
             $this->logger = $this->createLogger($name);
         }
 
@@ -57,12 +64,12 @@ class Logger implements LoggerInterface
 
     /**
      * @param string $name
+     *
      * @return LoggerInterface
      */
     private function createLogger($name)
     {
-
-        $this->level = (in_array($this->level, array_keys($this->levels))) ? $this->levels[$this->level] : BaseLogger::DEBUG;
+        $this->level = (in_array($this->level, array_keys($this->levels), true)) ? $this->levels[$this->level] : BaseLogger::DEBUG;
 
         $file = str_replace('%name%', $name, $this->path);
         $handler = new StreamHandler($file, $this->level);
@@ -73,7 +80,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function emergency($message, array $context = array())
+    public function emergency($message, array $context = [])
     {
         $this->logger->emergency($message, $context);
     }
@@ -81,7 +88,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function alert($message, array $context = array())
+    public function alert($message, array $context = [])
     {
         $this->logger->alert($message, $context);
     }
@@ -89,7 +96,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function critical($message, array $context = array())
+    public function critical($message, array $context = [])
     {
         $this->logger->critical($message, $context);
     }
@@ -97,7 +104,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function error($message, array $context = array())
+    public function error($message, array $context = [])
     {
         $this->logger->error($message, $context);
     }
@@ -105,7 +112,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function warning($message, array $context = array())
+    public function warning($message, array $context = [])
     {
         $this->logger->warning($message, $context);
     }
@@ -113,7 +120,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function notice($message, array $context = array())
+    public function notice($message, array $context = [])
     {
         $this->logger->notice($message, $context);
     }
@@ -121,15 +128,15 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function info($message, array $context = array())
+    public function info($message, array $context = [])
     {
         $this->logger->info($message, $context);
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
-    public function debug($message, array $context = array())
+    public function debug($message, array $context = [])
     {
         $this->logger->debug($message, $context);
     }
@@ -137,7 +144,7 @@ class Logger implements LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function log($level, $message, array $context = array())
+    public function log($level, $message, array $context = [])
     {
         $this->logger->log($message, $context);
     }

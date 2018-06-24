@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the Bull project.
+ * (c) Clivern <hello@clivern.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Controller\API\V1;
 
 use App\Utils\Logger;
@@ -10,7 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
  * Health Controller.
  *
  * @since 1.0.0
- * @package App\Controller\API\V1
  */
 class HealthController extends Controller
 {

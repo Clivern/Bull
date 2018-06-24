@@ -1,9 +1,16 @@
 <?php
 
+/*
+ * This file is part of the Bull project.
+ * (c) Clivern <hello@clivern.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Module\Service;
 
-use App\Utils\Logger;
 use App\Contract\Module\Service\MessageBroker;
+use App\Utils\Logger;
 
 /**
  * RabbitMQ Service.
@@ -19,9 +26,9 @@ class RabbitMQ implements MessageBroker
     /**
      * Class Constructor.
      *
-     * @param string          $appIdent
-     * @param string          $appRoles
-     * @param string          $mqURL
+     * @param string $appIdent
+     * @param string $appRoles
+     * @param string $mqURL
      * @param Logger $logger
      */
     public function __construct(string $appIdent, string $appRoles, string $mqURL, Logger $logger)

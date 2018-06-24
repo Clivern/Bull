@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the Bull project.
+ * (c) Clivern <hello@clivern.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\EventSubscriber;
 
 use App\Utils\Logger;
@@ -17,7 +24,7 @@ class RequestSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(GetResponseEvent $event)
     {
-        $this->logger->openLog($event->getRequest()->get("_route"))->info(sprintf("App Request: %s", $event->getRequest()));
+        $this->logger->openLog($event->getRequest()->get('_route'))->info(sprintf('App Request: %s', $event->getRequest()));
     }
 
     public static function getSubscribedEvents()

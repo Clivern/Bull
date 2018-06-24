@@ -15,10 +15,10 @@ if (!isset($_SERVER['HTTP_HOST'])) {
     exit("This script cannot be run from the CLI. Run it from a browser.\n");
 }
 
-if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
+if (!in_array(@$_SERVER['REMOTE_ADDR'], [
     '127.0.0.1',
     '::1',
-))) {
+], true)) {
     header('HTTP/1.0 403 Forbidden');
     exit('This script is only accessible from localhost.');
 }
@@ -379,8 +379,8 @@ $hasMinorProblems = (bool) count($minorProblems);
                             <p>Major problems have been detected and <strong>must</strong> be fixed before continuing:</p>
                             <ol>
                                 <?php foreach ($majorProblems as $problem): ?>
-                                    <li><?php echo $problem->getTestMessage() ?>
-                                        <p class="help"><em><?php echo $problem->getHelpHtml() ?></em></p>
+                                    <li><?php echo $problem->getTestMessage(); ?>
+                                        <p class="help"><em><?php echo $problem->getHelpHtml(); ?></em></p>
                                     </li>
                                 <?php endforeach; ?>
                             </ol>
@@ -394,8 +394,8 @@ $hasMinorProblems = (bool) count($minorProblems);
                             </p>
                             <ol>
                                 <?php foreach ($minorProblems as $problem): ?>
-                                    <li><?php echo $problem->getTestMessage() ?>
-                                        <p class="help"><em><?php echo $problem->getHelpHtml() ?></em></p>
+                                    <li><?php echo $problem->getTestMessage(); ?>
+                                        <p class="help"><em><?php echo $problem->getHelpHtml(); ?></em></p>
                                     </li>
                                 <?php endforeach; ?>
                             </ol>
@@ -404,7 +404,7 @@ $hasMinorProblems = (bool) count($minorProblems);
                         <?php if ($symfonyRequirements->hasPhpConfigIssue()): ?>
                             <p id="phpini">*
                                 <?php if ($symfonyRequirements->getPhpIniPath()): ?>
-                                    Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo $symfonyRequirements->getPhpIniPath() ?></strong>".
+                                    Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo $symfonyRequirements->getPhpIniPath(); ?></strong>".
                                 <?php else: ?>
                                     To change settings, create a "<strong>php.ini</strong>".
                                 <?php endif; ?>
