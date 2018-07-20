@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'cli_php71'
+      image 'cli_php71:latest'
     }
 
   }
