@@ -3,20 +3,19 @@ pipeline {
     docker {
       image 'cli_php71:latest'
     }
-
   }
   stages {
-    stage('build') {
+    stage('Build') {
       steps {
         sh 'php --version'
       }
     }
-    stage('composer') {
+    stage('Composer') {
       steps {
         sh 'composer install'
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
         sh './vendor/bin/simple-phpunit'
       }
