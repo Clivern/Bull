@@ -4,7 +4,7 @@ parameters:
     env(APP_IDENT): 'worker_a'
     env(APP_ROLES): 'role_a,role_b'
     env(MQ_URL): 'user:password@127.0.0.1:5672'
-    env(DEBUG_LEVEL): 'error'
+    env(DEBUG_LEVEL): 'debug'
 
 services:
     # default configuration for services in *this* file
