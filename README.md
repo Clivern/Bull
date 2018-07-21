@@ -112,17 +112,22 @@ Misc
 
 ### Testing
 
-To run test cases & get test coverage reports run the following command in app root
+To run test cases:
 ```bash
-./vendor/bin/simple-phpunit --coverage-text=./coverage.txt --coverage-html ./coverage
+make test
 ```
 
-or to view the coverage report
+or if you want to run all checks and make sure all of them passed:
 ```bash
-./vendor/bin/simple-phpunit --coverage-text --coverage-html ./coverage
+make ci
 ```
 
-Please note that, you need `xdebug` in order to get coverage reports.
+To fix code style issue, run the following command:
+
+```bash
+make syntax-to-fix
+make syntax-fix
+```
 
 ### Changelog
 
