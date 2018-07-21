@@ -31,17 +31,17 @@ test: clear config sf-clear
 	./bin/phpunit
 
 
-lint:
+lint: clear config sf-clear
 	./bin/console lint:yaml config
 	@find src tests -type f -name \*.php | while read file; do php -l "$$file" || exit 1; done
 
 
-validate:
+validate: clear config sf-clear
 	$(COMPOSER) validate --strict
 	./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
 
 
-security:
+security: clear config sf-clear
 	./bin/console security:check --end-point=https://security.sensiolabs.org/check_lock
 
 
