@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'cli_php71:latest'
-    }
-  }
+  agent { dockerfile true }
   stages {
     stage('Build') {
       steps {
