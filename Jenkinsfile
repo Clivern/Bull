@@ -6,14 +6,9 @@ pipeline {
         sh 'php --version'
       }
     }
-    stage('Composer') {
+    stage('Testing') {
       steps {
-        sh 'composer install'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh './vendor/bin/simple-phpunit'
+        sh 'make ci'
       }
     }
   }

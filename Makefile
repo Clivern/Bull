@@ -1,4 +1,4 @@
-COMPOSER ?= php composer.phar
+COMPOSER ?= composer
 PHP = php
 
 clear:
