@@ -2,7 +2,7 @@ COMPOSER ?= composer
 PHP = php
 
 
-default: about ci
+default: ci
 
 
 about:
