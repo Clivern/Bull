@@ -26,4 +26,4 @@ before_install:
   - mysql -e 'CREATE DATABASE bull;'
 
 script:
-  - make ci
+  - make

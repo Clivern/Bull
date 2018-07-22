@@ -1,6 +1,14 @@
 COMPOSER ?= composer
 PHP = php
 
+
+default: about ci
+
+
+about:
+	./bin/console about
+
+
 clear:
 	@echo "Clear Cache and Logs Directory"
 	rm -rf var/cache/*
