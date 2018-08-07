@@ -16,8 +16,11 @@ $finder = PhpCsFixer\Finder::create()
     ->notPath('public/index.php')
 ;
 return PhpCsFixer\Config::create()
+    ->setIndent("    ")
+    ->setLineEnding("\n")
     ->setRiskyAllowed(true)
     ->setRules([
+        '@PSR2' => true,
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'array_syntax' => ['syntax' => 'short'],
@@ -34,6 +37,8 @@ return PhpCsFixer\Config::create()
         'semicolon_after_instruction' => true,
         'strict_comparison' => true,
         'strict_param' => true,
+        'phpdoc_add_missing_param_annotation' => true,
+        'logical_operators' => true,
     ])
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/.php_cs.cache')
